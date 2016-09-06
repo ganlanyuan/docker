@@ -31,12 +31,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+git@gitlab.com:will1028/docker.git"
+    "url": "git+git@github.com:ganlanyuan/dockerfile.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/will1028/docker/issues"
+    "url": "https://github.com/ganlanyuan/dockerfile/issues"
   },
-  "homepage": "https://gitlab.com/will1028/docker"
+  "homepage": "https://github.com/ganlanyuan/dockerfile"
 }
