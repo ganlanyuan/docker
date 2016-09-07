@@ -26,3 +26,6 @@ docker build -t image_name .
 #### Version 1.0.2
 [Dockerfile](https://github.com/ganlanyuan/dockerfile/blob/master/web/Dockerfile)   
 [Packages](https://github.com/ganlanyuan/dockerfile/blob/master/web/package.json)  
+
+## License
+This project is available under the [MIT](https://opensource.org/licenses/mit-license.php) license.  
