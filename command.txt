@@ -1,3 +1,17 @@
+### FINAL
+
+# RUN
+docker-compose up
+
+// commands
+docker exec -it container_name sh
+
+# EXIT
+docker-compose down -v
+
+
+
+//////////////////////////////////////////////////////
 ### 1. CONTAINER
 
 sh == shell command
@@ -27,6 +41,7 @@ exit
 
 ### 2. DOCKER COMPOSE
 
+## 2.1
 # RUN
 docker-compose up -d
 
@@ -37,4 +52,15 @@ gulp
 # EXIT
 ctrl + c
 exit
+docker-compose down -v
+
+
+## 2.2
+# RUN
+docker-compose up
+
+// commands
+docker exec container_name sh
+
+# EXIT
 docker-compose down -v
