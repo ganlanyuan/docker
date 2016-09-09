@@ -4,6 +4,8 @@
 docker-compose up
 
 // commands
+docker ps
+docker attach container_name
 docker exec -it container_name sh
 
 # EXIT
@@ -11,7 +13,7 @@ docker-compose down -v
 
 
 
-//////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
 ### 1. CONTAINER
 
 sh == shell command
