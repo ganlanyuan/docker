@@ -28,8 +28,8 @@ docker build -t image_name .
 [Packages](https://github.com/ganlanyuan/dockerfile/blob/0e3154488fa427d6010b854ef8e0925936a198d0/web/package.json)  
 
 #### Version 1.0.3
-[Dockerfile](https://github.com/ganlanyuan/dockerfile/blob/5b1b5304e8d7ca083c02e05f15fc2c7a66c05c74/web/Dockerfile)   
-[Packages](https://github.com/ganlanyuan/dockerfile/blob/5b1b5304e8d7ca083c02e05f15fc2c7a66c05c74/web/package.json)  
+[Dockerfile](https://github.com/ganlanyuan/dockerfile/blob/e6ba55c962c9b7863d619015b0e7bb49fd07dcea/web/Dockerfile)   
+[Packages](https://github.com/ganlanyuan/dockerfile/blob/e6ba55c962c9b7863d619015b0e7bb49fd07dcea/web/package.json)  
 
 ## License
 This project is available under the [MIT](https://opensource.org/licenses/mit-license.php) license.  
