@@ -1,6 +1,6 @@
 {
   "name": "docker-web",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Packages for front-end tasks.",
   "main": "gulpfile.js",
   "devDependencies": {
@@ -12,10 +12,12 @@
     "gulp-connect-php": "0.0.8",
     "gulp-imagemin": "^3.0.2",
     "gulp-inject": "^4.1.0",
+    "gulp-inline-css": "^3.1.0",
     "gulp-jshint": "^2.0.1",
     "gulp-modernizr": "^1.0.0-alpha",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
     "gulp-ruby-sass": "^2.1.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
@@ -23,6 +25,7 @@
     "gulp-svgmin": "^1.2.2",
     "gulp-svgstore": "^6.0.0",
     "gulp-uglify": "^2.0.0",
+    "gulp-uncss": "^1.0.6",
     "jshint": "^2.9.3",
     "jshint-stylish": "^2.2.1",
     "merge-stream": "^1.0.0"
