@@ -1,10 +1,11 @@
 {
   "name": "docker-web",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Packages for front-end tasks.",
   "main": "gulpfile.js",
   "devDependencies": {
     "browser-sync": "^2.14.0",
+    "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-batch": "^1.0.5",
     "gulp-colorize-svgs": "git+https://git@github.com/unic/gulp-colorize-svgs.git",
@@ -24,6 +25,7 @@
     "gulp-svg2png": "^2.0.0",
     "gulp-svgmin": "^1.2.2",
     "gulp-svgstore": "^6.0.0",
+    "gulp-testcafe": "^0.9.0",
     "gulp-uglify": "^2.0.0",
     "gulp-uncss": "^1.0.6",
     "jshint": "^2.9.3",
