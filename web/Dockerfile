@@ -12,8 +12,7 @@ FROM phusion/baseimage:latest
 MAINTAINER William Lin <ganlanyuan@gmail.com>
 
 # Install Python & PIP 
-RUN \ 
-    apt-get update; \ 
+RUN apt-get update; \
     apt-get install -y -qq python-dev python-pip python-distro-info; \ 
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
@@ -71,18 +70,14 @@ RUN apt-get update && apt-get install -y ruby-sass git
 VOLUME ['/www/web']
 WORKDIR /www/
 
-# Global install gulp bower
+# Install gulp & bower globally
 RUN yarn global add gulp bower npm-check-updates && \
     echo '{ "allow_root": true }' > /root/.bowerrc
 
 # install packages
 ADD package.json yarn.lock /tmp/
-RUN cd /tmp && yarn 
-RUN mkdir -p /www/web && cd /www/web && ln -s /tmp/node_modules
-# RUN mkdir -p /www/web && cp -a /tmp/node_modules /www/web/
-
-# COPY package.json /www/package.json
-# RUN npm install
+RUN cd /tmp && yarn
+RUN mkdir -p /www && cd /www && ln -s /tmp/node_modules
 
 # commands run on container start
 ADD docker-start.sh /www/docker-start.sh
