@@ -24,8 +24,5 @@ Copy this Repo, replace the `web/package.json` with yours, change the working di
 docker build -t image_name .
 ```
 
-## Changelog
-[Changelog](CHANGELOG.md)
-
 ## License
 This project is available under the [MIT](https://opensource.org/licenses/mit-license.php) license.  
