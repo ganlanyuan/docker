@@ -1,7 +1,7 @@
 # Version 1.2.0 
 
 # PHP 7.0.10
-# node v6.5.0
+# node v6.9.4
 # npm 3.10.3
 # bower 1.7.9
 # libsass 3.3.6
@@ -19,8 +19,16 @@ RUN \
 
 USER root 
 
+# Install yarn
+RUN mkdir -p /opt
+# download the latest yarn at https://yarnpkg.com/latest.tar.gz
+# rename the package to "latest.tar.gz"
+ADD latest.tar.gz /opt/
+RUN mv /opt/dist /opt/yarn
+ENV PATH "$PATH:/opt/yarn/bin"
+
 # Install Node
-ENV NODE_VERSION 6.5.0 
+ENV NODE_VERSION 6.9.4 
 ENV NODE_DIR /opt/nodejs 
 ENV PATH $PATH:${NODE_DIR}/bin 
 
@@ -64,14 +72,19 @@ VOLUME ['/www/web']
 WORKDIR /www/
 
 # Global install gulp bower
-RUN npm install -g gulp bower npm-check-updates && \
+RUN yarn global add gulp bower npm-check-updates && \
     echo '{ "allow_root": true }' > /root/.bowerrc
 
 # install packages
-COPY package.json /www/package.json
-RUN npm install
+ADD package.json yarn.lock /tmp/
+RUN cd /tmp && yarn 
+RUN mkdir -p /www/web && cd /www/web && ln -s /tmp/node_modules
+# RUN mkdir -p /www/web && cp -a /tmp/node_modules /www/web/
+
+# COPY package.json /www/package.json
+# RUN npm install
 
 # commands run on container start
-COPY docker-start.sh /www/docker-start.sh
+ADD docker-start.sh /www/docker-start.sh
 
 CMD ["node", "php", "-a"]
