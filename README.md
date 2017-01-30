@@ -10,7 +10,7 @@ Place `gulpfile.json` (and `docker-compose.yml`) in project folder (refer to sam
 
 - Docker run   
 ```
-docker run -it --name web --rm -p 8000:8000 -p 3000:3000 -p 3001:3001 -v $(pwd):/www/web -w /www/web cmcdev/web sh
+docker run -it --name web --rm -p 3000:3000 -p 3001:3001 -v $(pwd):/www/web -w /www/web cmcdev/web sh
 ```
 - Docker-compose  
 ```
