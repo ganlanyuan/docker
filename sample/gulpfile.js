@@ -1,5 +1,15 @@
 var config = {
   sassLang: 'libsass',
+  sourcemaps: '../sourcemaps',
+  libsass_options: {
+    outputStyle: 'compressed', 
+    precision: 7
+  },
+  // styles
+  sass: {
+    src: 'src/scss/*.scss',
+    dest: 'assets/css',
+  },
   
   browserSync: {
     server: {
@@ -28,6 +38,7 @@ var config = {
 
 var gulp = require('gulp');
 var sass;
+var libsass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -43,6 +54,15 @@ function errorlog (error) {
   console.error.bind(error);  
   this.emit('end');  
 }  
+
+gulp.task('sass', function () {  
+  return gulp.src(config.sass.src)  
+      .pipe(sourcemaps.init())
+      .pipe(libsass(config.libsass_options).on('error', libsass.logError))  
+      .pipe(sourcemaps.write(config.sourcemaps))
+      .pipe(gulp.dest(config.sass.dest))
+      .pipe(browserSync.stream());
+});  
 
 // Svg Task
 gulp.task('min', function () {
@@ -74,7 +94,6 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(config.edit.src, ['min']);
   gulp.watch(config.watch.php).on('change', browserSync.reload);
   gulp.watch(config.watch.html).on('change', browserSync.reload);
 });
