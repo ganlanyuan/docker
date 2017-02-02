@@ -8,8 +8,6 @@ services:
     volumes:
       - .:/www/web/
     working_dir: /www/web
-    # command: sh
-    # container_name: web
     entrypoint: sh /www/start.sh
     stdin_open: true
     tty: true
