@@ -3,20 +3,20 @@ Dockerfile for [cmcdev](https://hub.docker.com/u/cmcdev/).
 
 ## cmcdev/web
 Docker Image `cmcdev/web` is built on a [minimal Ubuntu image](https://github.com/phusion/baseimage-docker).   
-With `PHP`, `node`+`npm`, `git`, `bower`, `libsass`, `Sass` pre-installed, this images is suitable for front-end development. 
+With `node`, `bower`, `Sass` and `gulp` pre-installed, this images is suitable for front end development. 
 
 #### Usage
-Place `gulpfile.json` (and `docker-compose.yml`) in project folder (refer to sample folder). Change the working directory to project folder. Then run one of the following command.   
+Place `gulpfile.json` (and `docker-compose.yml`) in project folder (refer to the "sample" folder). Change the working directory to project folder. Then run one of the following command.   
 
 - Docker run   
 ```
-docker run -it --name web --rm -p 3000:3000 -p 3001:3001 -v $(pwd):/www/web -w /www/web cmcdev/web sh
+docker run -it --name web --rm -p 3000:3000 -v $(pwd):/www/web -w /www/web cmcdev/web sh
 ```
 - Docker-compose  
 ```
-docker-compose up -d
+docker-compose up
 ```
-Continue on to run `bower` and `gulp` commands.
+Continue on to run `bower` and `gulp` commands if needed.
 
 #### Rebuild
 Copy this Repo, replace the `web/package.json` with yours, change the working directory to `web/` folder, and do 

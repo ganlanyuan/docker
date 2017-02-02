@@ -1,6 +1,6 @@
 {
   "name": "docker-web",
-  "version": "1.2.0",
+  "version": "2.1.0",
   "description": "Packages for front-end tasks.",
   "main": "gulpfile.js",
   "devDependencies": {
