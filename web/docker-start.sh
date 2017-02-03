@@ -1,4 +1,4 @@
 #!/bin/sh
 
 bower install
-gulp
+nodemon --watch gulpfile.js --exec gulp
