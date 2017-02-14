@@ -9,6 +9,7 @@
     "browser-sync": "^2.14.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-cached": "^1.1.1",
     "gulp-cheerio": "^0.6.2",
     "gulp-concat": "^2.6.0",
     "gulp-htmltidy": "^0.2.2",
