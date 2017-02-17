@@ -1,6 +1,6 @@
 {
   "name": "docker-web",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "Packages for front-end tasks.",
   "main": "gulpfile.js",
   "devDependencies": {
@@ -11,6 +11,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-cached": "^1.1.1",
+    "gulp-change": "^1.0.0",
     "gulp-cheerio": "^0.6.2",
     "gulp-concat": "^2.6.1",
     "gulp-htmltidy": "^0.2.2",
