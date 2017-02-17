@@ -8,6 +8,7 @@
     "gulp": "^3.9.1",
     "gulp-batch": "^1.0.5",
     "gulp-cached": "^1.1.1",
+    "gulp-change": "^1.0.0",
     "gulp-cheerio": "^0.6.2",
     "gulp-colorize-svgs": "git+https://git@github.com/unic/gulp-colorize-svgs.git",
     "gulp-concat": "^2.6.1",
