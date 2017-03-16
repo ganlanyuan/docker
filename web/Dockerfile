@@ -25,6 +25,7 @@ RUN npm install -g bower gulp nodemon && \
 ADD package.json /tmp/package.json
 RUN cd /tmp && npm install 
 RUN mkdir -p /www && cd /www && ln -s /tmp/node_modules
+ADD package.json /www/package.json
 
 # commands run on container starts
 ADD start.sh /www/start.sh
