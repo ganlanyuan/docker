@@ -1,6 +1,6 @@
 {
   "name": "docker-web",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Packages for front-end tasks.",
   "main": "gulpfile.js",
   "devDependencies": {
@@ -34,6 +34,7 @@
     "gulp-svgstore": "^6.1.0",
     "gulp-uglify": "^2.1.0",
     "gulp-uncss": "^1.0.6",
+    "gulp-yaml": "^1.0.1",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
     "merge-stream": "^1.0.1",
