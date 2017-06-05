@@ -5,8 +5,8 @@ MAINTAINER William Lin <ganlanyuan@gmail.com>
 USER root 
 
 # Install Node & git
-ADD nodesource/setup_6.x /tmp/setup_6.x
-RUN bash /tmp/setup_6.x
+ADD nodesource/setup_8.x /tmp/setup_8.x
+RUN bash /tmp/setup_8.x
 RUN apt-get update && \
 		apt-get install -y build-essential \
 											 nodejs \
