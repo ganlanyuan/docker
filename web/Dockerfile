@@ -1,4 +1,4 @@
-FROM phusion/baseimage:latest
+FROM phusion/baseimage:0.9.22
 
 MAINTAINER William Lin <ganlanyuan@gmail.com>
 
@@ -9,6 +9,7 @@ ADD nodesource/setup_6.x /tmp/setup_6.x
 RUN bash /tmp/setup_6.x
 RUN apt-get update && \
     apt-get install -y build-essential \
+                       libfontconfig \
                        nodejs \
                        git \
                        ruby-sass
