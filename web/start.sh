@@ -1,4 +1,5 @@
 #!/bin/sh
 
-bower install
+# bower install
+yarn
 nodemon --watch gulpfile.js --exec gulp

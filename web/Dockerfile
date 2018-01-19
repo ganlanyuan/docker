@@ -4,27 +4,32 @@ MAINTAINER William Lin <ganlanyuan@gmail.com>
 
 USER root 
 
-# Install Node & git
+# Install yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && \
+    apt-get install -y yarn
+
+# Install Node
 ADD nodesource/setup_8.x /tmp/setup_8.x
 RUN bash /tmp/setup_8.x
 RUN apt-get update && \
-		apt-get install -y build-essential \
+    apt-get autoremove && \
+    apt-get install -y build-essential \
                        libfontconfig \
-											 nodejs \
-											 git \
-											 ruby-sass
+                       nodejs
 
 # Set colume & working directory
 VOLUME ['/www/web']
 WORKDIR /www/
 
-# Globally install bower, gulp, nodemon
-RUN npm install -g bower gulp nodemon && \
-    echo '{ "allow_root": true }' > /root/.bowerrc
+# Globally install gulp-cli, nodemon
+RUN yarn global add gulp-cli nodemon
 
 # install packages
 ADD package.json /tmp/package.json
-RUN cd /tmp && npm install 
+ADD yarn.lock /tmp/yarn.lock
+RUN cd /tmp && yarn 
 RUN mkdir -p /www && cd /www && ln -s /tmp/node_modules
 ADD package.json /www/package.json
 
