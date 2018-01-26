@@ -45,6 +45,7 @@
     "gulp-yaml": "^1.0.1",
     "jshint": "^2.9.5",
     "jshint-stylish": "^2.2.1",
+    "lighthouse": "^2.8.0",
     "localtunnel": "^1.8.3",
     "merge-stream": "^1.0.1",
     "ngrok": "^2.2.25",
