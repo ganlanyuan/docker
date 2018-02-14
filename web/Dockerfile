@@ -20,15 +20,42 @@ RUN apt-get update && \
                        nodejs
 
 # Install latest chrome dev package.
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-    && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
-    && apt-get update \
-    && apt-get install -y google-chrome-unstable --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/* \
-    && rm -rf /src/*.deb
+# RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+#     && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
+#     && apt-get update \
+#     && apt-get install -y google-chrome-unstable --no-install-recommends \
+#     && rm -rf /var/lib/apt/lists/* \
+#     && rm -rf /src/*.deb
 
-ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
-RUN chmod +x /usr/local/bin/dumb-init
+# ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
+# RUN chmod +x /usr/local/bin/dumb-init
+
+ADD https://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb /src/google-talkplugin_current_amd64.deb
+
+# Install Chrome
+RUN apt-get update && apt-get install -y \
+  libcanberra-gtk* \
+  apt-transport-https \
+  ca-certificates \
+  curl \
+  gnupg \
+  hicolor-icon-theme \
+  libgl1-mesa-dri \
+  libgl1-mesa-glx \
+  libpango1.0-0 \
+  libpulse0 \
+  libv4l-0 \
+  fonts-symbola \
+  --no-install-recommends \
+  && curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+  && echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
+  && apt-get update && apt-get install -y \
+  google-chrome-stable \
+  --no-install-recommends \
+  && dpkg -i '/src/google-talkplugin_current_amd64.deb' \
+  && apt-get purge --auto-remove -y curl \
+  && rm -rf /var/lib/apt/lists/* \
+  && rm -rf /src/*.deb
 
 # Set colume & working directory
 VOLUME ['/www/web']
@@ -48,25 +75,31 @@ ADD package.json /www/package.json
 ADD yarn.lock /www/yarn.lock
 
 # Add the simple server.
-COPY server.js /
-RUN chmod +x /server.js
+# COPY server.js /
+# RUN chmod +x /server.js
 
-COPY entrypoint.sh /
-RUN chmod +x /entrypoint.sh
+# COPY entrypoint.sh /
+# RUN chmod +x /entrypoint.sh
 
-# Add a chrome user and setup home dir.
-RUN groupadd -r chrome && useradd -r -m -g chrome -G audio,video chrome && \
-    mkdir -p /www/reports && \
-    chown -R chrome:chrome /www
+# Add chrome user
+RUN groupadd -r chrome && useradd -r -g chrome -G audio,video chrome \
+    && mkdir -p /home/chrome/Downloads && chown -R chrome:chrome /home/chrome
 
+COPY local.conf /etc/fonts/local.conf
+
+# Run Chrome as non privileged user
 USER chrome
 
 # Disable Lighthouse error reporting to prevent prompt.
 # ENV CI=true
 
-EXPOSE 36377
+# EXPOSE 36377
 
 # commands run on container starts
 ADD start.sh /www/start.sh
 
-ENTRYPOINT ["dumb-init", "--", "/entrypoint.sh"]
+# ENTRYPOINT ["dumb-init", "--", "/entrypoint.sh"]
+
+# Autorun chrome
+ENTRYPOINT [ "google-chrome" ]
+CMD [ "--user-data-dir=/data" ]
