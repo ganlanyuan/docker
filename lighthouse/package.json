@@ -1,0 +1,12 @@
+{
+  "name": "cmcdev-lighthouse",
+  "version": "1.0.0",
+  "description": "Lighthouse in Docker",
+  "author": "William Lin <ganlanyuan@gmail.com>",
+  "license": "MIT",
+  "main": "Dockerfile",
+  "scripts": {},
+  "dependencies": {
+    "lighthouse": "^2.9.0"
+  }
+}
