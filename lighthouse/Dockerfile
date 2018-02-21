@@ -1,3 +1,4 @@
+# copy from https://github.com/ebidel/lighthouse-ci
 FROM node:8-slim
 
 MAINTAINER William Lin <ganlanyuan@gmail.com>
@@ -16,7 +17,10 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
 RUN chmod +x /usr/local/bin/dumb-init
 
-# Install local lighthouse.
+ARG CACHEBUST=1
+RUN npm i browser-sync -g
+
+# Install local lighthouse, express.
 COPY package.json .
 RUN npm i --production
 

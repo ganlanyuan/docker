@@ -1,12 +1,14 @@
 {
   "name": "cmcdev-lighthouse",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lighthouse in Docker",
   "author": "William Lin <ganlanyuan@gmail.com>",
   "license": "MIT",
   "main": "Dockerfile",
   "scripts": {},
   "dependencies": {
-    "lighthouse": "^2.9.0"
+    "browser-sync": "^2.23.5",
+    "lighthouse": "^2.9.0",
+    "ngrok": "^2.2.25"
   }
 }
