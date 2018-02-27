@@ -35,3 +35,6 @@ RUN cd /tmp && yarn
 RUN mkdir -p /www && cd /www && ln -s /tmp/node_modules
 ADD package.json /www/package.json
 ADD yarn.lock /www/yarn.lock
+
+# commands run on container starts
+ADD start.sh /www/start.sh
