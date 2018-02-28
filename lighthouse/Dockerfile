@@ -20,7 +20,7 @@ RUN chmod +x /usr/local/bin/dumb-init
 ARG CACHEBUST=1
 RUN npm i browser-sync -g
 
-# Install local lighthouse, express.
+# Install local lighthouse, browsersync, ngrok.
 COPY package.json .
 RUN npm i --production
 
