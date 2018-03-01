@@ -11,7 +11,7 @@ RUN apt-get update && \
     apt-get install -y yarn wget
 
 # Install Node
-ADD nodesource/setup_8.x /tmp/setup_8.x
+ADD nodesource/setup_8.x /tmp/
 RUN bash /tmp/setup_8.x
 RUN apt-get update && \
     apt-get autoremove && \
@@ -29,12 +29,10 @@ ARG CACHEBUST=1
 RUN yarn global add gulp-cli nodemon
 
 # install packages
-ADD package.json /tmp/package.json
-ADD yarn.lock /tmp/yarn.lock
+ADD package.json yarn.lock /tmp/
 RUN cd /tmp && yarn 
 RUN mkdir -p /www && cd /www && ln -s /tmp/node_modules
-ADD package.json /www/package.json
-ADD yarn.lock /www/yarn.lock
+ADD package.json yarn.lock /www/
 
 # commands run on container starts
 ADD start.sh /www/start.sh
