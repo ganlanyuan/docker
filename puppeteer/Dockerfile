@@ -41,5 +41,5 @@ USER pptruser
 VOLUME /home
 WORKDIR /home
 
-ENTRYPOINT ["dumb-init", "--"]
-CMD ["google-chrome-unstable"]
+# ENTRYPOINT ["dumb-init", "--"]
+# CMD ["google-chrome-unstable"]
