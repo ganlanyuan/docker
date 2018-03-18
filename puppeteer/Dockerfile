@@ -39,8 +39,8 @@ RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
 # Run everything after as non-privileged user.
 USER pptruser
 
-VOLUME /home
-WORKDIR /home
+VOLUME /home/chrome
+WORKDIR /home/chrome
 
 # ENTRYPOINT ["dumb-init", "--"]
 # CMD ["google-chrome-unstable"]
