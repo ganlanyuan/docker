@@ -27,8 +27,7 @@ RUN chmod +x /usr/local/bin/dumb-init
 # ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 # Install puppeteer so it's available in the container.
-RUN npm i gulp-cli -g
-RUN npm i puppeteer pixelmatch browser-sync gulp
+RUN npm i puppeteer pixelmatch browser-sync
 
 # Add user so we don't need --no-sandbox.
 RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
