@@ -1,4 +1,4 @@
-#Dockerfile
+# Dockerfile
 Dockerfile for [cmcdev](https://hub.docker.com/u/cmcdev/).
 
 ## cmcdev/web
@@ -10,7 +10,7 @@ Place `gulpfile.json` (and `docker-compose.yml`) in project folder (refer to the
 
 - Docker run   
 ```
-docker run -it --name web --rm -p 3000:3000 -v $(pwd):/www/web -w /www/web cmcdev/web sh
+docker run -it --name web --rm -p 3000:3000 --mount type=bind,source=\"$(pwd)\",target= -w /www/web cmcdev/web sh
 ```
 - Docker-compose  
 ```
@@ -18,7 +18,13 @@ docker-compose up
 ```
 Continue on to run `bower` and `gulp` commands if needed.
 
-#### Rebuild
+
+## puppeteer
+```
+docker run --rm -t -e var=save --name puppeteer -p 2000:2000 --cap-add SYS_ADMIN --mount type=bind,source=\"$(pwd)\",target=/home/chrome puppeteer node test/puppeteer/puppeteer.js
+```
+
+## Rebuild
 Copy this Repo, replace the `web/package.json` with yours, change the working directory to `web/` folder, and do 
 ```
 docker build -t image_name .
