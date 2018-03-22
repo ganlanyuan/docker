@@ -42,6 +42,7 @@
     "gulp-svgstore": "^6.1.1",
     "gulp-uglify": "^3.0.0",
     "gulp-uncss": "^1.0.6",
+    "js-yaml": "^3.11.0",
     "jshint": "^2.9.5",
     "jshint-stylish": "^2.2.1",
     "localtunnel": "^1.8.3",
