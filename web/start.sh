@@ -1,3 +1,3 @@
 #!/bin/sh
 yarn
-nodemon --watch gulpfile.js --exec gulp
+nodemon --watch index.js --exec npm run watch

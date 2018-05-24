@@ -23,10 +23,10 @@ RUN apt-get update && \
 VOLUME ['/www/web']
 WORKDIR /www/
 
-# Globally install gulp-cli, nodemon
+# Globally install nodemon
 # cache bust so we always get the latest version of LH when building the image.
 ARG CACHEBUST=1
-RUN yarn global add gulp-cli nodemon
+RUN yarn global add nodemon
 
 # install packages
 ADD package.json yarn.lock /tmp/
