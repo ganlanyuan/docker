@@ -17,6 +17,7 @@ RUN apt-get update && \
     apt-get autoremove && \
     apt-get install -y build-essential \
                        libfontconfig \
+                       git \
                        nodejs
 
 # Set colume & working directory
